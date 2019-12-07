@@ -234,8 +234,7 @@
           'offset': 333,
           'src': 'data-src',
           'container': false
-        }, opts || {});
-
+        }, opts || {});				
         if (typeof opts.src === 'string') {
           registerLazyAttr(opts.src);
         }
@@ -244,7 +243,6 @@
 
         function show(elt) {
           var src = findRealSrc(elt);
-
           if (src) {
             elt.src = src;
           }
@@ -262,6 +260,7 @@
         }
 
         function register(elt) {
+		console.log("111")
           elt.onload = null;
           elt.removeAttribute('onload');
           elt.onerror = null;
@@ -312,10 +311,9 @@
       }
 
       // http://webreflection.blogspot.fr/2011/06/partial-polyfills.html
-      function indexOf(value) {		  
+      function indexOf(value) {
         for (var i = this.length; i-- && this[i] !== value;) {}
         return i;
-		
       }
 
       module.exports = lazyload;
